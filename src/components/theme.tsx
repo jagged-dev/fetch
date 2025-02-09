@@ -26,5 +26,9 @@ export default function Theme() {
         setIcon(document.documentElement.classList.contains("dark") ? <Sun /> : <Moon />);
     }
 
-    return <button onClick={toggleTheme}>{icon}</button>;
+    return (
+        <button onClick={toggleTheme} className="transition hover:text-yellow">
+            {icon}
+        </button>
+    );
 }
