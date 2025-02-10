@@ -1,5 +1,7 @@
 import type { Metadata } from "next";
 import { inter } from "@/ts/fonts";
+import Navbar from "@/components/navbar";
+import Footer from "@/components/footer";
 import "@/css/tailwind.css";
 
 export const metadata: Metadata = {
@@ -23,7 +25,13 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: Readonly<{ children: React.ReactNode }>) {
     return (
         <html lang="en">
-            <body className={`${inter.className} bg-snow text-coal antialiased transition-background dark:bg-coal dark:text-snow`}>{children}</body>
+            <body className={`${inter.className} bg-snow text-coal antialiased transition dark:bg-coal dark:text-snow`}>
+                <div className="flex h-screen flex-col">
+                    <Navbar />
+                    <main className="grow">{children}</main>
+                    <Footer />
+                </div>
+            </body>
         </html>
     );
 }
