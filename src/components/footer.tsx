@@ -1,11 +1,7 @@
-import Theme from "@/components/theme";
-
 export default function Footer() {
     return (
-        <div className="flex justify-between">
-            <div className="w-6"></div>
+        <div className="flex justify-center p-8 xl:p-16">
             <p className="text-gunmetal transition-font dark:text-silver">powered by &copy; Fetch</p>
-            <Theme />
         </div>
     );
 }
