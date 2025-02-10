@@ -40,7 +40,7 @@ export default function Page() {
     return (
         <div className="flex h-full flex-col items-center justify-center gap-2">
             <Link href="/">
-                <Image src="/collie.svg" alt="Collie graphic" height={160} width={240} priority={true} className="mb-4" />
+                <Image src="/chihuahua.svg" alt="Chihuahua graphic" height={200} width={240} priority={true} className="mb-4" />
             </Link>
             <div className="flex flex-col gap-2">
                 <input id="name" name="name" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal border-opacity-25 bg-snow p-4 transition hover:border-opacity-50 dark:border-silver dark:border-opacity-25 dark:bg-coal" />
