@@ -40,14 +40,7 @@ module.exports = {
             "9xl": "9rem",
             "10xl": "10rem",
         },
-        container: {
-            center: true,
-        },
         extend: {
-            screens: {
-                xs: "500px",
-                "3xl": "1800px",
-            },
             spacing: {
                 18: "4.5rem",
                 22: "5.5rem",
@@ -58,14 +51,10 @@ module.exports = {
             width: {
                 "screen/2": "50vw",
             },
-            aspectRatio: {
-                "5/4": "5/4",
-            },
-            backgroundImage: {},
             transitionProperty: {
-                DEFAULT: "background-image, height, font-size, " + defaultTheme.transitionProperty.DEFAULT,
-                background: "background-image, background-color",
-                font: "font-size, color",
+                DEFAULT: "background-image, height, width, font-size, " + defaultTheme.transitionProperty.DEFAULT,
+                background: "background-color",
+                font: "color",
             },
         },
     },
