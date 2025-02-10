@@ -13,7 +13,7 @@ export default function NotFound() {
                 <div className="text-gunmetal transition-font dark:text-silver">
                     Try a different URL or head back to the
                     <Link href="/">
-                        <b className="text-coal transition-font hover:text-blue dark:text-snow"> Home </b>
+                        <b className="text-coal transition-font hover:text-blue dark:text-snow">{` Home `}</b>
                     </Link>
                     page.
                 </div>
