@@ -55,6 +55,9 @@ module.exports = {
             height: {
                 "screen/2": "50vh",
             },
+            width: {
+                "screen/2": "50vw",
+            },
             aspectRatio: {
                 "5/4": "5/4",
             },
