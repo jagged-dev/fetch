@@ -59,3 +59,48 @@ export async function fetchBreeds() {
         throw new Error("Error fetching breeds");
     }
 }
+
+export async function searchDogs() {
+    const response = await fetch(baseURL + "/dogs/search", {
+        method: "GET",
+        headers: headers,
+        credentials: "include",
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        throw new Error("Error searching dogs.");
+    }
+}
+
+export async function fetchDogs() {
+    const response = await fetch(baseURL + "/dogs", {
+        method: "POST",
+        headers: headers,
+        credentials: "include",
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        throw new Error("Error fetching dogs.");
+    }
+}
+
+export async function fetchMatch() {
+    const response = await fetch(baseURL + "/dogs/match", {
+        method: "POST",
+        headers: headers,
+        credentials: "include",
+    });
+
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        throw new Error("Error fetching match.");
+    }
+}
