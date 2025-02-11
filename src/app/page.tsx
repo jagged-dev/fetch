@@ -10,7 +10,7 @@ export default function Page() {
                 <p className="text-gunmetal transition-font xl:text-xl dark:text-silver">one fetch closer to your new best friend</p>
                 <Link href="/login">
                     <button className="mt-4 h-12 w-36 rounded-lg bg-coal p-2 transition hover:translate-x-2 hover:bg-opacity-75 dark:bg-snow">
-                        <span className="text-snow dark:text-coal">{`Get Started ->`}</span>
+                        <span className="text-snow transition-font dark:text-coal">{`Get Started ->`}</span>
                     </button>
                 </Link>
             </div>
