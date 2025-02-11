@@ -51,7 +51,7 @@ export default function Page() {
                 {errors.email ? <p className="text-sm text-red">{errors.email}</p> : null}
             </div>
             <button onClick={submitForm} disabled={isPending} className="h-12 w-96 rounded-lg bg-coal p-2 transition hover:bg-opacity-75 disabled:cursor-not-allowed dark:bg-snow">
-                <div className="flex justify-center text-snow transition-font dark:text-coal">{isPending ? <LoaderCircle className="animate-spin" /> : `Log In`}</div>
+                <span className="flex justify-center text-snow transition-font dark:text-coal">{isPending ? <LoaderCircle className="animate-spin" /> : `Log In`}</span>
             </button>
         </div>
     );
