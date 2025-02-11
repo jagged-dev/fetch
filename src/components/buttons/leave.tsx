@@ -10,8 +10,8 @@ export default function Leave() {
 
     async function leave() {
         setIcon(<LoaderCircle className="animate-spin" />);
-        await logOut();
-        redirect("/");
+        const response = await logOut();
+        if (response.ok) redirect("/");
     }
 
     return (
