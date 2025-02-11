@@ -10,6 +10,10 @@ export type Dog = {
     breed: string;
 };
 
+export type Match = {
+    match: string;
+};
+
 export async function logIn(name: string, email: string) {
     const response = await fetch(baseURL + "/auth/login", {
         method: "POST",
