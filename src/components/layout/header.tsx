@@ -1,8 +1,8 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Theme from "@/components/theme";
-import Leave from "@/components/leave";
+import Theme from "@/components/buttons/theme";
+import Leave from "@/components/buttons/leave";
 
 export default function Navbar() {
     const path = usePathname();
