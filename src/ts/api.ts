@@ -75,10 +75,11 @@ export async function searchDogs() {
     }
 }
 
-export async function fetchDogs() {
+export async function fetchDogs(dogIds: string[]) {
     const response = await fetch(baseURL + "/dogs", {
         method: "POST",
         headers: headers,
+        body: JSON.stringify(dogIds),
         credentials: "include",
     });
 
