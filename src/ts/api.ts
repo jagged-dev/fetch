@@ -56,7 +56,7 @@ export async function fetchBreeds() {
         const data = await response.json();
         return data;
     } else {
-        throw new Error("Error fetching breeds");
+        throw new Error("Error fetching breeds.");
     }
 }
 
