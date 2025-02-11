@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { inter } from "@/ts/fonts";
-import Navbar from "@/components/navbar";
+import Header from "@/components/header";
 import Footer from "@/components/footer";
 import "@/css/tailwind.css";
 
@@ -27,7 +27,7 @@ export default function RootLayout({ children }: Readonly<{ children: React.Reac
         <html lang="en">
             <body className={`${inter.className} bg-snow text-coal antialiased transition dark:bg-coal dark:text-snow`}>
                 <div className="flex h-screen flex-col">
-                    <Navbar />
+                    <Header />
                     <main className="grow">{children}</main>
                     <Footer />
                 </div>
