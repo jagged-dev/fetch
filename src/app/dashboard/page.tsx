@@ -11,14 +11,19 @@ export default async function Page(props: { searchParams?: Promise<{ query?: str
     const page = Number(params?.page) || 1;
 
     return (
-        <div className="flex h-full flex-col items-center justify-center gap-2">
-            <Link href="/">
-                <Image src="/samoyed.svg" alt="Samoyed graphic" height={160} width={240} priority={true} className="mb-4" />
-            </Link>
+        <div className="flex h-full items-center justify-center">
             <div className="flex h-full w-11/12 flex-col gap-2 xl:w-10/12">
-                <div className="flex w-full gap-2">
-                    <Search />
-                    <Filter />
+                <div className="flex">
+                    <div className="flex w-full gap-2 xl:w-1/3">
+                        <Search />
+                        <Filter />
+                    </div>
+                    <div className="hidden w-1/3 justify-center xl:flex">
+                        <Link href="/">
+                            <Image src="/samoyed.svg" alt="Samoyed graphic" height={120} width={180} priority={true} className="-mt-22 mb-4" />
+                        </Link>
+                    </div>
+                    <div className="hidden w-1/3 xl:flex"></div>
                 </div>
                 <Table key={query + page} query={query} page={page} />
                 <Pagination />
