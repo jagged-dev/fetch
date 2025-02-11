@@ -50,8 +50,8 @@ export default function Page() {
                 <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal/25 bg-snow p-4 transition hover:border-gunmetal/50 dark:border-silver/25 dark:bg-coal dark:hover:border-silver/50" />
                 {errors.email ? <p className="text-sm text-red">{errors.email}</p> : null}
             </div>
-            <button onClick={submitForm} disabled={isPending} className="h-12 w-96 rounded-lg bg-coal p-2 text-snow transition hover:bg-opacity-75 disabled:cursor-not-allowed dark:bg-snow dark:text-coal">
-                <div className="flex justify-center">{isPending ? <LoaderCircle className="animate-spin text-snow dark:text-coal" /> : `Log In`}</div>
+            <button onClick={submitForm} disabled={isPending} className="h-12 w-96 rounded-lg bg-coal p-2 transition hover:bg-opacity-75 disabled:cursor-not-allowed dark:bg-snow">
+                <div className="flex justify-center text-snow transition-font dark:text-coal">{isPending ? <LoaderCircle className="animate-spin" /> : `Log In`}</div>
             </button>
         </div>
     );
