@@ -43,11 +43,11 @@ export default function Page() {
                 <Image src="/chihuahua.svg" alt="Chihuahua graphic" height={200} width={240} priority={true} className="mb-4" />
             </Link>
             <div className="flex flex-col gap-2">
-                <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal border-opacity-25 bg-snow p-4 transition hover:border-opacity-50 dark:border-silver dark:border-opacity-25 dark:bg-coal" />
+                <input type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal/25 bg-snow p-4 transition hover:border-gunmetal/50 dark:border-silver/25 dark:bg-coal dark:hover:border-silver/50" />
                 {errors.name ? <p className="text-sm text-red">{errors.name}</p> : null}
             </div>
             <div className="flex flex-col gap-2">
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal border-opacity-25 bg-snow p-4 transition hover:border-opacity-50 dark:border-silver dark:border-opacity-25 dark:bg-coal" />
+                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal/25 bg-snow p-4 transition hover:border-gunmetal/50 dark:border-silver/25 dark:bg-coal dark:hover:border-silver/50" />
                 {errors.email ? <p className="text-sm text-red">{errors.email}</p> : null}
             </div>
             <button onClick={submitForm} disabled={isPending} className="h-12 w-96 rounded-lg bg-coal p-2 text-snow transition hover:bg-opacity-75 disabled:cursor-not-allowed dark:bg-snow dark:text-coal">
