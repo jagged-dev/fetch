@@ -5,7 +5,11 @@ import Filter from "@/components/filter";
 import Table from "@/components/table";
 import Pagination from "@/components/pagination";
 
-export default function Page() {
+export default async function Page(props: { searchParams?: Promise<{ query?: string; page?: string }> }) {
+    const params = await props.searchParams;
+    const query = params?.query || "";
+    const page = Number(params?.page) || 1;
+
     return (
         <div className="flex h-full flex-col items-center justify-center gap-2">
             <Link href="/">
@@ -16,7 +20,7 @@ export default function Page() {
                     <Search />
                     <Filter />
                 </div>
-                <Table />
+                <Table key={query + page} query={query} page={page} />
                 <Pagination />
             </div>
         </div>
