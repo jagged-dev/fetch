@@ -27,7 +27,7 @@ export default function Search() {
             onChange={(e) => {
                 search(e.target.value);
             }}
-            className="h-12 w-full rounded-lg border border-gunmetal/25 bg-snow p-4 transition hover:border-gunmetal/50 dark:border-silver/25 dark:bg-coal dark:hover:border-silver/50"
+            className="h-12 w-96 rounded-lg border border-gunmetal/25 bg-snow p-4 transition hover:border-gunmetal/50 dark:border-silver/25 dark:bg-coal dark:hover:border-silver/50"
         />
     );
 }
