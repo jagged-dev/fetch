@@ -1,6 +1,15 @@
 const baseURL = "https://frontend-take-home-service.fetch.com";
 const headers = { "Content-Type": "application/json" };
 
+export type Dog = {
+    id: string;
+    img: string;
+    name: string;
+    age: number;
+    zip_code: string;
+    breed: string;
+};
+
 export async function logIn(name: string, email: string) {
     const response = await fetch(baseURL + "/auth/login", {
         method: "POST",
