@@ -60,8 +60,8 @@ export async function fetchBreeds() {
     }
 }
 
-export async function searchDogs() {
-    const response = await fetch(baseURL + "/dogs/search", {
+export async function searchDogs(query: string) {
+    const response = await fetch(baseURL + "/dogs/search" + query, {
         method: "GET",
         headers: headers,
         credentials: "include",
