@@ -27,7 +27,7 @@ export default function Theme() {
     }
 
     return (
-        <button onClick={toggleTheme} className="transition-font hover:text-purple dark:hover:text-yellow">
+        <button onClick={toggleTheme} className="text-coal transition-font hover:text-purple dark:text-snow dark:hover:text-yellow">
             {icon}
         </button>
     );

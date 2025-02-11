@@ -11,7 +11,7 @@ export default function Leave() {
     }
 
     return (
-        <button onClick={leave} className="hover:text-red">
+        <button onClick={leave} className="text-coal transition-font hover:text-red dark:text-snow">
             <LogOut />
         </button>
     );
