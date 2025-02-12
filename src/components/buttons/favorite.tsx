@@ -10,8 +10,8 @@ export default function Favorite({ id }: { id: string }) {
 
     function toggleFavorite(id: string) {
         const searchParams = new URLSearchParams(params);
-        if (searchParams.has("favorite", id)) searchParams.delete("favorite", id);
-        else searchParams.append("favorite", id);
+        if (!searchParams.has("favorite", id)) searchParams.append("favorite", id);
+        else searchParams.delete("favorite", id);
         router.replace(`${path}?${searchParams.toString()}`);
     }
 
