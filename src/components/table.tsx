@@ -39,7 +39,7 @@ export default function Table({ query, page }: { query: string; page: number }) 
                         <div key={dog.id} className="grid grid-cols-5 items-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
                             <div className="flex items-center gap-4">
                                 <Image src={dog.img} alt={dog.name} height={28} width={28} className="h-7 w-7 rounded-full" />
-                                <span className="text-md">{dog.name}</span>
+                                <p className="text-md">{dog.name}</p>
                             </div>
                             <p className="text-md">{dog.breed}</p>
                             <p className="text-md">{dog.age}</p>
