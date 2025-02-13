@@ -1,6 +1,7 @@
 "use client";
 
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
+import clsx from "clsx";
 import { Heart } from "lucide-react";
 
 export default function Favorite({ id }: { id: string }) {
@@ -17,7 +18,7 @@ export default function Favorite({ id }: { id: string }) {
 
     return (
         <button onClick={() => toggleFavorite(id)} className="text-coal transition-font hover:text-pink dark:text-snow">
-            {params.has("favorite", id) ? <Heart className="fill-pink text-pink" /> : <Heart />}
+            <Heart className={clsx({ "fill-pink text-pink": params.has("favorite", id) })} />
         </button>
     );
 }
