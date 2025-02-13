@@ -5,10 +5,19 @@ import Filter from "@/components/filter";
 import Table from "@/components/table";
 import Pagination from "@/components/pagination";
 
-export default async function Page(props: { searchParams?: Promise<{ query?: string; page?: string }> }) {
+type searchParams = {
+    size?: number;
+    from?: number;
+    sort?: string;
+    total?: number;
+};
+
+export default async function Page(props: { searchParams?: Promise<searchParams> }) {
     const params = await props.searchParams;
-    const query = params?.query || "";
-    const page = Number(params?.page) || 1;
+    const size = Number(params?.size) || 10;
+    const from = Number(params?.from) || 0;
+    const sort = params?.sort || "breed:asc";
+    const total = Number(params?.total);
 
     return (
         <div className="flex h-full items-center justify-center">
@@ -22,8 +31,8 @@ export default async function Page(props: { searchParams?: Promise<{ query?: str
                     <Search />
                     <Filter />
                 </div>
-                <Table key={query + page} query={query} page={page} />
-                <Pagination />
+                <Table key={from} size={size} from={from} sort={sort} />
+                <Pagination size={size} from={from} total={total} />
             </div>
         </div>
     );
