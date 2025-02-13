@@ -3,12 +3,12 @@
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { ChevronFirst, ChevronLeft, ChevronRight, ChevronLast } from "lucide-react";
 
-export default function Pagination({ total, from, size }: { total: number; from: number; size: number }) {
+export default function Pagination({ size, from, total }: { size: number; from: number; total: number }) {
     const path = usePathname();
     const params = useSearchParams();
     const router = useRouter();
-    const totalPages = Math.ceil(total / size) || 1;
     const currentPage = Math.floor(from / size) + 1 || 1;
+    const totalPages = Math.ceil(total / size) || 1;
 
     const pagination = (length: number) => {
         const middle = Math.ceil(length / 2);
