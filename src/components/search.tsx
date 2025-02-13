@@ -10,9 +10,8 @@ export default function Search() {
 
     const search = useDebouncedCallback((term) => {
         const searchParams = new URLSearchParams(params);
-        searchParams.set("page", "1");
-        if (term) searchParams.set("query", term);
-        else searchParams.delete("query");
+        if (term) searchParams.set("term", term);
+        else searchParams.delete("term");
         router.replace(`${path}?${searchParams.toString()}`);
     }, 300);
 
@@ -20,7 +19,7 @@ export default function Search() {
         <input
             type="text"
             placeholder="Search"
-            defaultValue={params.get("query")?.toString()}
+            defaultValue={params.get("term")?.toString()}
             onChange={(e) => {
                 search(e.target.value);
             }}
