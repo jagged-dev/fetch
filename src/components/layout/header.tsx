@@ -1,7 +1,6 @@
 "use client";
 
 import { usePathname } from "next/navigation";
-import Home from "@/components/buttons/home";
 import Theme from "@/components/buttons/theme";
 import Leave from "@/components/buttons/leave";
 
