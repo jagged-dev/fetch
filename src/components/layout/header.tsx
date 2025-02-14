@@ -4,7 +4,7 @@ import { usePathname } from "next/navigation";
 import Theme from "@/components/buttons/theme";
 import Leave from "@/components/buttons/leave";
 
-export default function Navbar() {
+export default function Header() {
     const path = usePathname();
 
     return (
