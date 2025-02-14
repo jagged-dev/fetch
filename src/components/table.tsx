@@ -31,7 +31,7 @@ export default function Table({ size, from, sort }: { size: number; from: number
     return (
         <>
             {isPending ? (
-                <div className={`flex h-[${size * 70 + 48}] w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50`}>
+                <div className={`flex h-[${size * 70 + 48}px] w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50`}>
                     <LoaderCircle size={48} className="animate-spin" />
                 </div>
             ) : (
