@@ -4,6 +4,7 @@ import Search from "@/components/search";
 import Filter from "@/components/filter";
 import Table from "@/components/table";
 import Pagination from "@/components/pagination";
+import Sizer from "@/components/sizer";
 
 type searchParams = {
     size?: number;
@@ -29,8 +30,9 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                     <Search />
                     <Filter />
                 </div>
-                <Table key={from} size={size} from={from} sort={sort} />
+                <Table key={size + from} size={size} from={from} sort={sort} />
                 <Pagination size={size} from={from} total={total} />
+                <Sizer size={size} />
             </div>
         </div>
     );
