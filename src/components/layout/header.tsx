@@ -8,13 +8,9 @@ export default function Navbar() {
     const path = usePathname();
 
     return (
-        <div className="grid grid-cols-3 p-8 xl:p-16">
-            <div className="xl:col-span-2"></div>
-            <div className="flex justify-center xl:hidden">{path === "/dashboard" ? <Home /> : null}</div>
-            <div className="flex justify-end gap-8">
-                <Theme />
-                {path === "/dashboard" ? <Leave /> : null}
-            </div>
+        <div className="flex justify-end gap-8 p-8">
+            <Theme />
+            {path === "/dashboard" ? <Leave /> : null}
         </div>
     );
 }
