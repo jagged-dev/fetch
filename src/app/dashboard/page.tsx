@@ -14,7 +14,7 @@ type searchParams = {
 
 export default async function Page(props: { searchParams?: Promise<searchParams> }) {
     const params = await props.searchParams;
-    const size = Number(params?.size) || 10;
+    const size = Number(params?.size) || 5;
     const from = Number(params?.from) || 0;
     const sort = params?.sort || "breed:asc";
     const total = Number(params?.total);
