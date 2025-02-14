@@ -26,7 +26,7 @@ export default function Pagination({ size, from, total }: { size: number; from: 
     }
 
     return (
-        <div className="flex w-full items-center justify-center gap-4 rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 sm:gap-8 dark:border-silver/25 dark:hover:border-silver/50">
+        <div className="flex w-full items-center justify-center gap-4 rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 md:gap-8 dark:border-silver/25 dark:hover:border-silver/50">
             <button onClick={() => setPage(1)} disabled={currentPage === 1} className="text-coal transition-font enabled:hover:text-blue disabled:text-opacity-25 dark:text-snow">
                 <ChevronFirst strokeWidth={1} />
             </button>
