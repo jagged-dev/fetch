@@ -21,13 +21,11 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
 
     return (
         <div className="flex h-full items-center justify-center">
-            <div className="flex h-full w-11/12 flex-col gap-2 xl:w-10/12">
-                <div className="-mt-22 mb-4 hidden w-full justify-center xl:flex">
-                    <Link href="/">
-                        <Image src="/samoyed.svg" alt="Samoyed graphic" height={120} width={180} priority={true} className="transition-transform hover:-translate-y-2" />
-                    </Link>
-                </div>
-                <div className="flex w-full gap-2 xl:-mt-14 xl:w-1/3">
+            <div className="flex h-full w-11/12 flex-col items-center gap-2 xl:w-10/12">
+                <Link href="/">
+                    <Image src="/samoyed.svg" alt="Samoyed graphic" height={120} width={180} priority={true} className="mb-4 transition-transform hover:-translate-y-2" />
+                </Link>
+                <div className="flex w-full gap-2">
                     <Search />
                     <Filter />
                 </div>
