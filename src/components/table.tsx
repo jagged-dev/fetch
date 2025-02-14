@@ -6,6 +6,7 @@ import Image from "next/image";
 import clsx from "clsx";
 import { LoaderCircle } from "lucide-react";
 import { Dog, searchDogs, fetchDogs } from "@/ts/api";
+import Sort from "@/components/buttons/sort";
 import Favorite from "@/components/buttons/favorite";
 
 export default function Table({ size, from, sort }: { size: number; from: number; sort: string }) {
@@ -34,8 +35,8 @@ export default function Table({ size, from, sort }: { size: number; from: number
             {isPending ? (
                 <div
                     className={clsx("flex w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50", {
-                        "h-[398px]": size === 5,
-                        "h-[748px]": size === 10,
+                        "h-[400px]": size === 5,
+                        "h-[750px]": size === 10,
                     })}
                 >
                     <LoaderCircle size={48} className="animate-spin" />
@@ -43,9 +44,18 @@ export default function Table({ size, from, sort }: { size: number; from: number
             ) : (
                 <div className="flex w-full flex-col gap-2">
                     <div className="grid grid-cols-5 items-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
-                        <p className="text-md font-bold leading-none">Name</p>
-                        <p className="text-md font-bold leading-none">Breed</p>
-                        <p className="text-md font-bold leading-none">Age</p>
+                        <div className="flex items-center gap-4">
+                            <p className="text-md font-bold leading-none">Name</p>
+                            <Sort field="name" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <p className="text-md font-bold leading-none">Breed</p>
+                            <Sort field="breed" />
+                        </div>
+                        <div className="flex items-center gap-4">
+                            <p className="text-md font-bold leading-none">Age</p>
+                            <Sort field="age" />
+                        </div>
                         <p className="text-md font-bold leading-none">Zip Code</p>
                     </div>
                     {dogs.map((dog: Dog) => (

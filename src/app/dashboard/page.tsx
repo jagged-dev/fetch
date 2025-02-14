@@ -30,7 +30,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                     <Search />
                     <Filter />
                 </div>
-                <Table key={size + from} size={size} from={from} sort={sort} />
+                <Table key={size + from + sort} size={size} from={from} sort={sort} />
                 <Pagination size={size} from={from} total={total} />
                 <Sizer size={size} />
             </div>
