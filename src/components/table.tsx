@@ -3,7 +3,6 @@
 import { useState, useTransition, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import Image from "next/image";
-import clsx from "clsx";
 import { LoaderCircle } from "lucide-react";
 import { Dog, searchDogs, fetchDogs } from "@/ts/api";
 import Favorite from "@/components/buttons/favorite";
@@ -32,15 +31,7 @@ export default function Table({ size, from, sort }: { size: number; from: number
     return (
         <>
             {isPending ? (
-                <div
-                    className={clsx("flex w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50", {
-                        "h-[398]": size === 5,
-                        "h-[748]": size === 10,
-                        "h-[1798]": size === 25,
-                        "h-[3548]": size === 50,
-                        "h-[7048]": size === 100,
-                    })}
-                >
+                <div className={`flex h-[${size * 70 + 48}] w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50`}>
                     <LoaderCircle size={48} className="animate-spin" />
                 </div>
             ) : (
