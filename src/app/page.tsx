@@ -5,7 +5,7 @@ export default function Page() {
     return (
         <div className="flex h-full flex-col items-center justify-center gap-8 xl:flex-row xl:gap-16">
             <Link href="/login">
-                <Image src="/collie.svg" alt="Collie graphic" height={160} width={240} priority={true} className="origin-bottom-left transition hover:-rotate-3 xl:h-[260px] xl:w-[400px]" />
+                <Image src="/collie.svg" alt="Collie graphic" height={160} width={240} priority={true} className="origin-bottom-left transition-transform hover:-rotate-3 xl:h-[260px] xl:w-[400px]" />
             </Link>
             <div className="flex flex-col items-center gap-2 xl:items-start">
                 <h1 className="text-3xl font-bold leading-none xl:text-5xl">fetch a friend</h1>

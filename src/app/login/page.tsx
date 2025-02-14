@@ -40,7 +40,7 @@ export default function Page() {
     return (
         <form onSubmit={submitForm} className="flex h-full flex-col items-center justify-center gap-2">
             <Link href="/">
-                <Image src="/chihuahua.svg" alt="Chihuahua graphic" height={200} width={240} priority={true} className="mb-4 transition hover:-translate-x-2" />
+                <Image src="/chihuahua.svg" alt="Chihuahua graphic" height={200} width={240} priority={true} className="mb-4 transition-transform hover:-translate-x-2" />
             </Link>
             <div className="flex flex-col gap-2">
                 <input id="name" name="name" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal/25 bg-snow p-4 transition hover:border-gunmetal/50 dark:border-silver/25 dark:bg-coal dark:hover:border-silver/50" />
