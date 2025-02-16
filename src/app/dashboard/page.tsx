@@ -11,6 +11,7 @@ type searchParams = {
     from?: number;
     sort?: string;
     total?: number;
+    breeds?: string;
 };
 
 export default async function Page(props: { searchParams?: Promise<searchParams> }) {
@@ -19,6 +20,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
     const from = Number(params?.from) || 0;
     const sort = params?.sort || "breed:asc";
     const total = Number(params?.total);
+    const breeds = params?.breeds;
 
     return (
         <div className="flex h-full items-center justify-center">
@@ -30,7 +32,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                     <Search />
                     <Filter />
                 </div>
-                <Table key={size + from + sort} size={size} from={from} sort={sort} />
+                <Table key={size + from + sort + breeds} size={size} from={from} sort={sort} />
                 <Pagination size={size} from={from} total={total} />
                 <Sizer size={size} />
             </div>
