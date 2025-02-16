@@ -29,6 +29,14 @@ export default function Filter() {
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-8 xl:p-16">
                     <DialogPanel transition className="flex h-full w-full flex-col gap-8 rounded-lg bg-snow p-8 transition data-[closed]:scale-95 data-[closed]:opacity-0 xl:p-16 dark:bg-coal">
                         <DialogTitle className="text-3xl font-bold leading-none xl:text-5xl">Filters</DialogTitle>
+                        <div className="mt-auto flex gap-2">
+                            <button onClick={() => setOpen(false)} className="h-12 w-24 rounded-lg bg-coal p-2 transition hover:bg-opacity-75 dark:bg-snow">
+                                <span className="text-snow transition-font dark:text-coal">Cancel</span>
+                            </button>
+                            <button onClick={apply} className="h-12 w-24 rounded-lg bg-coal p-2 transition hover:bg-opacity-75 dark:bg-snow">
+                                <span className="text-snow transition-font dark:text-coal">Apply</span>
+                            </button>
+                        </div>
                     </DialogPanel>
                 </div>
             </Dialog>
