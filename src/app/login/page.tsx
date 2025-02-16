@@ -44,11 +44,11 @@ export default function Page() {
             </Link>
             <div className="flex flex-col gap-2">
                 <input id="name" name="name" type="text" placeholder="Name" onChange={(e) => setName(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal/25 bg-transparent p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50" />
-                {errors.name ? <p className="text-sm text-red">{errors.name}</p> : null}
+                {errors.name && <p className="text-sm text-red">{errors.name}</p>}
             </div>
             <div className="flex flex-col gap-2">
                 <input id="email" name="email" type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} className="h-12 w-96 rounded-lg border border-gunmetal/25 bg-transparent p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50" />
-                {errors.email ? <p className="text-sm text-red">{errors.email}</p> : null}
+                {errors.email && <p className="text-sm text-red">{errors.email}</p>}
             </div>
             <button onClick={submitForm} disabled={isPending} className="h-12 w-96 rounded-lg bg-coal p-2 transition hover:bg-opacity-75 disabled:cursor-not-allowed dark:bg-snow">
                 <span className="flex justify-center text-snow transition-font dark:text-coal">{isPending ? <LoaderCircle className="animate-spin" /> : `Log In`}</span>

@@ -10,7 +10,7 @@ export default function Header() {
     return (
         <div className="flex justify-end gap-8 p-8">
             <Theme />
-            {path === "/dashboard" ? <Leave /> : null}
+            {path === "/dashboard" && <Leave />}
         </div>
     );
 }
