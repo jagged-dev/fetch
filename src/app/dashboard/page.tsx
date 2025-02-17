@@ -11,6 +11,7 @@ type searchParams = {
     from?: number;
     sort?: string;
     total?: number;
+    showFavorites?: string;
     breeds?: string;
 };
 
@@ -20,6 +21,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
     const from = Number(params?.from) || 0;
     const sort = params?.sort || "breed:asc";
     const total = Number(params?.total);
+    const showFavorites = params?.showFavorites;
     const breeds = params?.breeds;
 
     return (
@@ -32,7 +34,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                     <Search />
                     <Filter />
                 </div>
-                <Table key={size + from + sort + breeds} size={size} from={from} sort={sort} />
+                <Table key={size + from + sort + showFavorites + breeds} size={size} from={from} sort={sort} />
                 <Pagination size={size} from={from} total={total} />
                 <Sizer size={size} />
             </div>

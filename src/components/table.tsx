@@ -27,6 +27,13 @@ export default function Table({ size, from, sort }: { size: number; from: number
             router.replace(`${path}?${searchParams.toString()}`);
             const dogs = await fetchDogs(results.resultIds);
             setDogs(dogs);
+            if (searchParams.has("showFavorites", "true")) {
+                const favorites = searchParams.getAll("favorite");
+                searchParams.set("total", favorites.length.toString());
+                router.replace(`${path}?${searchParams.toString()}`);
+                const dogs = await fetchDogs(favorites);
+                setDogs(dogs);
+            }
         });
     }, []);
 
