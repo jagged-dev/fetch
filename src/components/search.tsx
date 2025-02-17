@@ -19,7 +19,7 @@ export default function Search() {
         <input
             type="text"
             placeholder="Search"
-            defaultValue={params.get("term")?.toString()}
+            defaultValue={params.get("term") || ""}
             onChange={(e) => {
                 search(e.target.value);
             }}
