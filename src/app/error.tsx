@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect } from "react";
+import Link from "next/link";
 import { Dog } from "lucide-react";
 
 export default function Error({ error, reset }: { error: Error & { digest?: string }; reset: () => void }) {
@@ -18,8 +19,12 @@ export default function Error({ error, reset }: { error: Error & { digest?: stri
             <p className="text-lg font-bold xl:text-xl">Something went wrong.</p>
             <p className="text-gunmetal transition-font dark:text-silver">
                 <span>Please</span>
-                <span onClick={() => reset()} className="cursor-pointer font-bold text-coal transition-font hover:text-blue dark:text-snow">{` try again`}</span>
-                <span>.</span>
+                <span onClick={() => reset()} className="cursor-pointer font-bold text-coal transition-font hover:text-blue dark:text-snow">{` try again `}</span>
+                <span>or head back to the</span>
+                <Link href="/">
+                    <span className="font-bold text-coal transition-font hover:text-blue dark:text-snow">{` Home `}</span>
+                </Link>
+                <span>page.</span>
             </p>
         </div>
     );
