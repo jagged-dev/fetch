@@ -13,6 +13,8 @@ type searchParams = {
     total?: number;
     showFavorites?: string;
     breeds?: string;
+    ageMin?: number;
+    ageMax?: number;
 };
 
 export default async function Page(props: { searchParams?: Promise<searchParams> }) {
@@ -23,6 +25,8 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
     const total = Number(params?.total);
     const showFavorites = params?.showFavorites;
     const breeds = params?.breeds;
+    const ageMin = Number(params?.ageMin);
+    const ageMax = Number(params?.ageMax);
 
     return (
         <div className="flex h-full items-center justify-center">
@@ -34,7 +38,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                     <Search />
                     <Filter />
                 </div>
-                <Table key={size + from + sort + showFavorites + breeds} size={size} from={from} sort={sort} />
+                <Table key={size + from + sort + showFavorites + breeds + ageMin + ageMax} size={size} from={from} sort={sort} />
                 <Pagination size={size} from={from} total={total} />
                 <Sizer size={size} />
             </div>

@@ -14,6 +14,7 @@ export default function Filter() {
     const [showFavorites, setShowFavorites] = useState(false);
     const [breeds, setBreeds] = useState([]);
     const [selected, setSelected] = useState({ breeds: [""] });
+    const [age, setAge] = useState({ min: "", max: "" });
     const [isPending, startTransition] = useTransition();
     const path = usePathname();
     const params = useSearchParams();
@@ -26,6 +27,7 @@ export default function Filter() {
                 const breeds = await fetchBreeds();
                 setBreeds(breeds);
                 setSelected({ breeds: breeds.filter((breed: string) => params.has("breeds", breed)) });
+                setAge({ min: params.get("ageMin") || "", max: params.get("ageMax") || "" });
             });
         }
     }, [open]);
@@ -42,6 +44,10 @@ export default function Filter() {
         else searchParams.delete("showFavorites");
         searchParams.delete("breeds");
         selected.breeds.forEach((breed: string) => searchParams.append("breeds", breed));
+        if (age.min) searchParams.set("ageMin", age.min);
+        else searchParams.delete("ageMin");
+        if (age.max) searchParams.set("ageMax", age.max);
+        else searchParams.delete("ageMax");
         router.replace(`${path}?${searchParams.toString()}`);
         setOpen(false);
     }
@@ -85,6 +91,25 @@ export default function Filter() {
                                     ))}
                                 </div>
                             )}
+                        </div>
+                        <div className="flex flex-col gap-2">
+                            <p>Age</p>
+                            <div className="flex gap-2">
+                                <input
+                                    type="number"
+                                    placeholder="Min"
+                                    defaultValue={age.min}
+                                    onChange={(e) => setAge({ min: e.target.value, max: age.max })}
+                                    className="h-10 w-20 rounded-md border border-gunmetal/25 bg-transparent p-2 text-md hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50"
+                                />
+                                <input
+                                    type="number"
+                                    placeholder="Max"
+                                    defaultValue={age.max}
+                                    onChange={(e) => setAge({ min: age.min, max: e.target.value })}
+                                    className="h-10 w-20 rounded-md border border-gunmetal/25 bg-transparent p-2 text-md hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50"
+                                />
+                            </div>
                         </div>
                         <div className="mt-auto flex gap-2">
                             <button onClick={() => setOpen(false)} className="h-12 w-24 rounded-lg bg-coal p-2 transition hover:bg-opacity-75 dark:bg-snow">
