@@ -2,23 +2,34 @@
 
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
 import { useDebouncedCallback } from "use-debounce";
+import { fetchBreeds } from "@/ts/api";
 
 export default function Search() {
     const path = usePathname();
     const params = useSearchParams();
     const router = useRouter();
 
-    const search = useDebouncedCallback((term) => {
+    const search = useDebouncedCallback(async (term) => {
         const searchParams = new URLSearchParams(params);
-        if (term) searchParams.set("term", term);
-        else searchParams.delete("term");
+        if (term) {
+            if (isNaN(term)) {
+                searchParams.set("breeds", term.charAt(0).toUpperCase() + term.slice(1));
+                const breeds = await fetchBreeds();
+                breeds.forEach((breed: string) => {
+                    if (breed.toLowerCase().includes(term.toLowerCase())) searchParams.append("breeds", breed);
+                });
+            } else searchParams.set("zipCodes", term);
+        } else {
+            searchParams.delete("breeds");
+            searchParams.delete("zipCodes");
+        }
         router.replace(`${path}?${searchParams.toString()}`);
     }, 300);
 
     return (
         <input
             type="text"
-            placeholder="Search"
+            placeholder="Search (breed, zip code)"
             defaultValue={params.get("term") || ""}
             onChange={(e) => {
                 search(e.target.value);
