@@ -12,8 +12,7 @@ import Checkbox from "@/components/checkbox";
 export default function Filter() {
     const [open, setOpen] = useState(false);
     const [showFavorites, setShowFavorites] = useState(false);
-    const [breeds, setBreeds] = useState([]);
-    const [selected, setSelected] = useState({ breeds: [""] });
+    const [breeds, setBreeds] = useState({ all: [""], selected: [""] });
     const [age, setAge] = useState({ min: "", max: "" });
     const [isPending, startTransition] = useTransition();
     const path = usePathname();
@@ -25,16 +24,15 @@ export default function Filter() {
             startTransition(async () => {
                 setShowFavorites(params.has("showFavorites", "true"));
                 const breeds = await fetchBreeds();
-                setBreeds(breeds);
-                setSelected({ breeds: breeds.filter((breed: string) => params.has("breeds", breed)) });
+                setBreeds({ all: breeds, selected: breeds.filter((breed: string) => params.has("breeds", breed)) });
                 setAge({ min: params.get("ageMin") || "", max: params.get("ageMax") || "" });
             });
         }
     }, [open]);
 
     function toggleBreed(breed: string, checked: boolean) {
-        if (checked) setSelected({ breeds: [...selected.breeds, breed] });
-        else setSelected({ breeds: selected.breeds.filter((item: string) => item !== breed) });
+        if (checked) setBreeds({ all: [...breeds.all], selected: [...breeds.selected, breed] });
+        else setBreeds({ all: [...breeds.all], selected: breeds.selected.filter((item: string) => item !== breed) });
     }
 
     function apply() {
@@ -43,7 +41,7 @@ export default function Filter() {
         if (showFavorites) searchParams.set("showFavorites", "true");
         else searchParams.delete("showFavorites");
         searchParams.delete("breeds");
-        selected.breeds.forEach((breed: string) => searchParams.append("breeds", breed));
+        breeds.selected.forEach((breed: string) => searchParams.append("breeds", breed));
         if (age.min) searchParams.set("ageMin", age.min);
         else searchParams.delete("ageMin");
         if (age.max) searchParams.set("ageMax", age.max);
@@ -72,10 +70,10 @@ export default function Filter() {
                             <p>Breeds</p>
                             {!isPending && (
                                 <div className="flex flex-wrap items-center gap-2">
-                                    <button onClick={() => setSelected({ breeds: [] })} disabled={selected.breeds.length === 0} className="group">
+                                    <button onClick={() => setBreeds({ all: [...breeds.all], selected: [] })} disabled={breeds.selected.length === 0} className="group">
                                         <Chip Icon={X} label="Clear selection" className="transition group-enabled:text-red group-enabled:hover:border-red group-disabled:text-gunmetal group-disabled:dark:text-silver" />
                                     </button>
-                                    {selected.breeds.map((breed: string) => (
+                                    {breeds.selected.map((breed: string) => (
                                         <Chip key={breed} Icon={Check} label={breed} />
                                     ))}
                                 </div>
@@ -86,8 +84,8 @@ export default function Filter() {
                                 </div>
                             ) : (
                                 <div className="flex w-full flex-col gap-2 overflow-y-auto rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
-                                    {breeds.map((breed: string) => (
-                                        <Checkbox key={breed} id={breed} label={breed} checked={selected.breeds.includes(breed)} onCheck={(checked: boolean) => toggleBreed(breed, checked)} />
+                                    {breeds.all.map((breed: string) => (
+                                        <Checkbox key={breed} id={breed} label={breed} checked={breeds.selected.includes(breed)} onCheck={(checked: boolean) => toggleBreed(breed, checked)} />
                                     ))}
                                 </div>
                             )}
