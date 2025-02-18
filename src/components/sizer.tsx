@@ -18,7 +18,7 @@ export default function Sizer({ size }: { size: number }) {
     }
 
     return (
-        <div className="flex w-full items-center justify-center gap-8 rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+        <div className="flex w-full items-center justify-center gap-4 rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 md:gap-8 dark:border-silver/25 dark:hover:border-silver/50">
             <Dot strokeWidth={1} />
             {sizes.map((size) => (
                 <button key={size} onClick={() => setSize(size)} disabled={currentSize === size} className="text-coal transition-font enabled:hover:text-blue disabled:font-bold disabled:text-blue dark:text-snow">
