@@ -50,7 +50,7 @@ export default function Table({ size, from, sort }: { size: number; from: number
                 </div>
             ) : (
                 <div className="flex w-full flex-col gap-2">
-                    <div className="grid grid-cols-5 items-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                    <div className="grid grid-cols-4 items-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 md:grid-cols-5 dark:border-silver/25 dark:hover:border-silver/50">
                         <div className="flex items-center gap-4">
                             <p className="text-md font-bold leading-none">Name</p>
                             <Sort field="name" />
@@ -67,15 +67,29 @@ export default function Table({ size, from, sort }: { size: number; from: number
                     </div>
                     {dogs.map((dog: Dog) => (
                         <div key={dog.id} className="grid grid-cols-5 items-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
-                            <div className="flex items-center gap-4">
+                            <div className="col-span-4 flex items-center gap-4 md:col-span-1">
                                 <Image src={dog.img} alt={dog.name} height={28} width={28} className="h-7 w-7 rounded-full" />
                                 <p className="text-md">{dog.name}</p>
                             </div>
-                            <p className="text-md">{dog.breed}</p>
-                            <p className="text-md">{dog.age}</p>
-                            <p className="text-md">{dog.zip_code}</p>
-                            <div className="flex items-center justify-end">
+                            <p className="hidden text-md md:flex">{dog.breed}</p>
+                            <p className="hidden text-md md:flex">{dog.age}</p>
+                            <p className="hidden text-md md:flex">{dog.zip_code}</p>
+                            <div className="row-span-2 flex items-center justify-end md:row-span-1">
                                 <Favorite id={dog.id} />
+                            </div>
+                            <div className="col-span-4 mt-2 flex items-center gap-2 md:hidden">
+                                <p className="flex gap-1 text-sm">
+                                    <span className="text-gunmetal transition-font dark:text-silver">Breed:</span>
+                                    <span>{dog.breed}</span>
+                                </p>
+                                <p className="flex gap-1 text-sm">
+                                    <span className="text-gunmetal transition-font dark:text-silver">Age:</span>
+                                    <span>{dog.age}</span>
+                                </p>
+                                <p className="flex gap-1 text-sm">
+                                    <span className="text-gunmetal transition-font dark:text-silver">Zip Code:</span>
+                                    <span>{dog.zip_code}</span>
+                                </p>
                             </div>
                         </div>
                     ))}
