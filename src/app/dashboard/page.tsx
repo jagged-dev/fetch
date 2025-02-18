@@ -1,7 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
-import Search from "@/components/search";
 import Filter from "@/components/filter";
+import Search from "@/components/search";
 import Table from "@/components/table";
 import Pagination from "@/components/pagination";
 import Sizer from "@/components/sizer";
@@ -37,8 +37,8 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                     <Image src="/samoyed.svg" alt="Samoyed graphic" height={120} width={180} priority={true} className="mb-4 transition-transform hover:-translate-y-2" />
                 </Link>
                 <div className="flex w-full gap-2">
-                    <Search />
                     <Filter />
+                    <Search />
                 </div>
                 <Table key={size + from + sort + showFavorites + breeds + zipCodes + ageMin + ageMax} size={size} from={from} sort={sort} />
                 <Pagination size={size} from={from} total={total} />
