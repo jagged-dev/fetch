@@ -33,7 +33,7 @@ export default function Pagination({ size, from, total }: { size: number; from: 
             <button onClick={() => setPage(currentPage - 1)} disabled={currentPage === 1} className="text-coal transition-font enabled:hover:text-blue disabled:text-opacity-25 dark:text-snow">
                 <ChevronLeft strokeWidth={1} />
             </button>
-            {pagination(7).map((page) => (
+            {pagination(5).map((page) => (
                 <button key={page} onClick={() => setPage(page)} disabled={currentPage === page} className="text-coal transition-font enabled:hover:text-blue disabled:font-bold disabled:text-blue dark:text-snow">
                     <span className="text-md">{page}</span>
                 </button>
