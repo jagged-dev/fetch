@@ -11,6 +11,7 @@ export default function Search() {
 
     const search = useDebouncedCallback(async (term) => {
         const searchParams = new URLSearchParams(params);
+        searchParams.set("from", "0");
         if (term) {
             if (isNaN(term)) {
                 searchParams.set("breeds", term.charAt(0).toUpperCase() + term.slice(1));
