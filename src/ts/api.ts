@@ -100,3 +100,18 @@ export async function fetchMatch(dogIds: string[]) {
         throw new Error("Error fetching match.");
     }
 }
+
+export async function fetchLocations(zipCodes: string[]) {
+    const response = await fetch(baseURL + "/locations", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify(zipCodes),
+        credentials: "include",
+    });
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        throw new Error("Error fetching locations.");
+    }
+}
