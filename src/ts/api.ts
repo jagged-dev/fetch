@@ -91,10 +91,11 @@ export async function fetchDogs(dogIds: string[]) {
     }
 }
 
-export async function fetchMatch() {
+export async function fetchMatch(dogIds: string[]) {
     const response = await fetch(baseURL + "/dogs/match", {
         method: "POST",
         headers: headers,
+        body: JSON.stringify(dogIds),
         credentials: "include",
     });
 
