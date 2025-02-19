@@ -21,7 +21,6 @@ export async function logIn(name: string, email: string) {
         body: JSON.stringify({ name: name, email: email }),
         credentials: "include",
     });
-
     if (response.ok) {
         document.cookie = "authorized=true;max-age=3600;";
         return response;
@@ -36,7 +35,6 @@ export async function logOut() {
         headers: headers,
         credentials: "include",
     });
-
     if (response.ok) {
         document.cookie = "authorized=false;";
         return response;
@@ -51,7 +49,6 @@ export async function fetchBreeds() {
         headers: headers,
         credentials: "include",
     });
-
     if (response.ok) {
         const data = await response.json();
         return data;
@@ -66,7 +63,6 @@ export async function searchDogs(query: string) {
         headers: headers,
         credentials: "include",
     });
-
     if (response.ok) {
         const data = await response.json();
         return data;
@@ -82,7 +78,6 @@ export async function fetchDogs(dogIds: string[]) {
         body: JSON.stringify(dogIds),
         credentials: "include",
     });
-
     if (response.ok) {
         const data = await response.json();
         return data;
@@ -98,7 +93,6 @@ export async function fetchMatch(dogIds: string[]) {
         body: JSON.stringify(dogIds),
         credentials: "include",
     });
-
     if (response.ok) {
         const data = await response.json();
         return data;
