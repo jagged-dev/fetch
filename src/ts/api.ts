@@ -14,6 +14,20 @@ export type Match = {
     match: string;
 };
 
+export type Location = {
+    zip_code: string;
+    latitude: number;
+    longitude: number;
+    city: string;
+    state: string;
+    county: string;
+};
+
+export type Coordinates = {
+    lat: number;
+    lon: number;
+};
+
 export async function logIn(name: string, email: string) {
     const response = await fetch(baseURL + "/auth/login", {
         method: "POST",
