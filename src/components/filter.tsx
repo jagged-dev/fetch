@@ -46,7 +46,7 @@ export default function Filter() {
         else searchParams.delete("ageMin");
         if (age.max) searchParams.set("ageMax", age.max);
         else searchParams.delete("ageMax");
-        router.replace(`${path}?${searchParams.toString()}`);
+        router.push(`${path}?${searchParams.toString()}`);
         setOpen(false);
     }
 

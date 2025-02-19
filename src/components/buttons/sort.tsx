@@ -13,7 +13,7 @@ export default function Sort({ field }: { field: string }) {
         searchParams.set("from", "0");
         if (searchParams.has("sort", `${field}:asc`)) searchParams.set("sort", `${field}:desc`);
         else searchParams.set("sort", `${field}:asc`);
-        router.replace(`${path}?${searchParams.toString()}`);
+        router.push(`${path}?${searchParams.toString()}`);
     }
 
     return (

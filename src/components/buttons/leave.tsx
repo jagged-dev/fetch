@@ -1,17 +1,18 @@
 "use client";
 
 import { useState } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import { LogOut, LoaderCircle } from "lucide-react";
 import { logOut } from "@/ts/api";
 
 export default function Leave() {
     const [icon, setIcon] = useState(<LogOut />);
+    const router = useRouter();
 
     async function leave() {
         setIcon(<LoaderCircle className="animate-spin" />);
         const response = await logOut();
-        if (response.ok) redirect("/");
+        if (response.ok) router.push("/");
     }
 
     return (

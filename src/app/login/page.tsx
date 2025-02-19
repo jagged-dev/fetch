@@ -1,7 +1,7 @@
 "use client";
 
 import { useState, useTransition } from "react";
-import { redirect } from "next/navigation";
+import { useRouter } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
 import { z } from "zod";
@@ -13,6 +13,7 @@ export default function Page() {
     const [email, setEmail] = useState("");
     const [errors, setErrors] = useState({ name: "", email: "" });
     const [isPending, startTransition] = useTransition();
+    const router = useRouter();
 
     function submitForm() {
         setErrors({ name: "", email: "" });
@@ -28,7 +29,7 @@ export default function Page() {
                 });
             if (validatedFields.success) {
                 const response = await logIn(name, email);
-                if (response.ok) redirect("/dashboard");
+                if (response.ok) router.push("/dashboard");
             } else {
                 const nameErrors = validatedFields.error.flatten().fieldErrors.name;
                 const emailErrors = validatedFields.error.flatten().fieldErrors.email;
