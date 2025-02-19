@@ -2,6 +2,7 @@ import Link from "next/link";
 import Image from "next/image";
 import Filter from "@/components/filter";
 import Search from "@/components/search";
+import Match from "@/components/buttons/match";
 import Table from "@/components/table";
 import Pagination from "@/components/pagination";
 import Sizer from "@/components/sizer";
@@ -39,6 +40,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                 <div className="flex w-full gap-2">
                     <Filter />
                     <Search />
+                    <Match />
                 </div>
                 <Table key={size + from + sort + showFavorites + breeds + zipCodes + ageMin + ageMax} size={size} from={from} sort={sort} />
                 <Pagination size={size} from={from} total={total} />
