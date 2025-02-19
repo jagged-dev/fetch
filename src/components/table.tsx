@@ -2,11 +2,11 @@
 
 import { useState, useTransition, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import Image from "next/image";
 import clsx from "clsx";
 import { LoaderCircle } from "lucide-react";
-import { Dog, searchDogs, fetchDogs } from "@/ts/api";
+import { Dog as DogType, searchDogs, fetchDogs } from "@/ts/api";
 import Sort from "@/components/buttons/sort";
+import Dog from "@/components/dog";
 import Favorite from "@/components/buttons/favorite";
 
 export default function Table({ size, from, sort }: { size: number; from: number; sort: string }) {
@@ -65,11 +65,10 @@ export default function Table({ size, from, sort }: { size: number; from: number
                         </div>
                         <p className="text-md font-bold leading-none">Zip Code</p>
                     </div>
-                    {dogs.map((dog: Dog) => (
+                    {dogs.map((dog: DogType) => (
                         <div key={dog.id} className="grid grid-cols-5 items-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
-                            <div className="col-span-4 flex items-center gap-4 md:col-span-1">
-                                <Image src={dog.img} alt={dog.name} height={28} width={28} className="h-7 w-7 rounded-full" />
-                                <p className="text-md">{dog.name}</p>
+                            <div className="col-span-4 md:col-span-1">
+                                <Dog dog={dog} />
                             </div>
                             <p className="hidden text-md md:flex">{dog.breed}</p>
                             <p className="hidden text-md md:flex">{dog.age}</p>
