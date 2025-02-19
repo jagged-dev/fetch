@@ -5,6 +5,7 @@ import Image from "next/image";
 import { LoaderCircle, X, Dog as DogFace, PawPrint, MapPin, Locate } from "lucide-react";
 import { Dialog, DialogBackdrop, DialogPanel } from "@headlessui/react";
 import { Dog as DogType, Location, fetchLocations } from "@/ts/api";
+import Favorite from "@/components/buttons/favorite";
 
 export default function Dog({ dog }: { dog: DogType }) {
     const [open, setOpen] = useState(false);
@@ -28,7 +29,7 @@ export default function Dog({ dog }: { dog: DogType }) {
             </button>
             <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogBackdrop transition className="fixed inset-0 bg-gunmetal/75 transition data-[closed]:opacity-0 dark:bg-silver/25" />
-                <div className="fixed inset-0 flex w-screen items-center justify-center p-8">
+                <div className="fixed inset-0 flex w-screen items-center justify-center p-8 md:p-16 xl:p-32">
                     <DialogPanel transition className="flex h-full w-full rounded-lg bg-snow transition data-[closed]:scale-95 data-[closed]:opacity-0 dark:bg-coal">
                         {isPending ? (
                             <div className="flex h-full w-full items-center justify-center p-4">
@@ -52,7 +53,10 @@ export default function Dog({ dog }: { dog: DogType }) {
                                         </button>
                                     </div>
                                     <div className="flex h-full flex-col justify-center gap-2">
-                                        <h1 className="mb-4 text-3xl font-bold leading-none xl:text-5xl">{dog.name}</h1>
+                                        <div className="flex items-center gap-8">
+                                            <h1 className="mb-4 text-3xl font-bold leading-none xl:text-5xl">{dog.name}</h1>
+                                            <Favorite id={dog.id} />
+                                        </div>
                                         <div className="flex items-center gap-2">
                                             <DogFace />
                                             <p>{dog.breed}</p>
