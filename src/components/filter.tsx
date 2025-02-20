@@ -66,24 +66,22 @@ export default function Filter() {
                             <Heart className={clsx("transition group-hover:text-pink", { "fill-pink text-pink": showFavorites })} />
                             <p className="text-md leading-none">Favorites only</p>
                         </button>
-                        <div className="flex h-96 w-full flex-col gap-2">
+                        <div className="flex flex-col gap-2">
                             <p>Breeds</p>
-                            {!isPending && (
-                                <div className="flex flex-wrap items-center gap-2">
-                                    <button onClick={() => setBreeds({ all: breeds.all, selected: [] })} disabled={breeds.selected.length === 0} className="group">
-                                        <Chip Icon={X} label="Clear selection" className="transition group-enabled:text-red group-enabled:hover:border-red group-disabled:text-gunmetal group-disabled:dark:text-silver" />
-                                    </button>
-                                    {breeds.selected.map((breed: string) => (
-                                        <Chip key={breed} Icon={Check} label={breed} />
-                                    ))}
-                                </div>
-                            )}
+                            <div className="flex flex-wrap items-center gap-2">
+                                <button onClick={() => setBreeds({ all: breeds.all, selected: [] })} disabled={breeds.selected.length === 0} className="group">
+                                    <Chip Icon={X} label="Clear selection" className="transition group-enabled:text-red group-enabled:hover:border-red group-disabled:text-gunmetal group-disabled:dark:text-silver" />
+                                </button>
+                                {breeds.selected.map((breed: string) => (
+                                    <Chip key={breed} Icon={Check} label={breed} />
+                                ))}
+                            </div>
                             {isPending ? (
-                                <div className="flex h-full w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                                <div className="flex h-96 w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
                                     <LoaderCircle size={48} className="animate-spin" />
                                 </div>
                             ) : (
-                                <div className="flex w-full flex-col gap-2 overflow-y-auto rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                                <div className="flex h-96 w-full flex-col gap-2 overflow-y-auto rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
                                     {breeds.all.map((breed: string) => (
                                         <Checkbox key={breed} id={breed} label={breed} checked={breeds.selected.includes(breed)} onCheck={(checked: boolean) => toggleBreed(breed, checked)} />
                                     ))}
