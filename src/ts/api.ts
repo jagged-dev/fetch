@@ -129,3 +129,39 @@ export async function fetchLocations(zipCodes: string[]) {
         throw new Error("Error fetching locations.");
     }
 }
+
+export async function searchLocations(
+    city?: string,
+    states?: string[],
+    geoBoundingBox?: {
+        top?: Coordinates;
+        left?: Coordinates;
+        bottom?: Coordinates;
+        right?: Coordinates;
+        top_left?: Coordinates;
+        top_right?: Coordinates;
+        bottom_left?: Coordinates;
+        bottom_right?: Coordinates;
+    },
+    size?: number,
+    from?: number,
+) {
+    const response = await fetch(baseURL + "/locations/search", {
+        method: "POST",
+        headers: headers,
+        body: JSON.stringify({
+            city: city,
+            states: states,
+            geoBoundingBox: geoBoundingBox,
+            size: size,
+            from: from,
+        }),
+        credentials: "include",
+    });
+    if (response.ok) {
+        const data = await response.json();
+        return data;
+    } else {
+        throw new Error("Error searching locations.");
+    }
+}
