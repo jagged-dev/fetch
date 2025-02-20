@@ -31,8 +31,8 @@ export default function Filter() {
     }, [open]);
 
     function toggleBreed(breed: string, checked: boolean) {
-        if (checked) setBreeds({ all: [...breeds.all], selected: [...breeds.selected, breed] });
-        else setBreeds({ all: [...breeds.all], selected: breeds.selected.filter((item: string) => item !== breed) });
+        if (checked) setBreeds({ all: breeds.all, selected: [...breeds.selected, breed] });
+        else setBreeds({ all: breeds.all, selected: breeds.selected.filter((item: string) => item !== breed) });
     }
 
     function apply() {
@@ -70,7 +70,7 @@ export default function Filter() {
                             <p>Breeds</p>
                             {!isPending && (
                                 <div className="flex flex-wrap items-center gap-2">
-                                    <button onClick={() => setBreeds({ all: [...breeds.all], selected: [] })} disabled={breeds.selected.length === 0} className="group">
+                                    <button onClick={() => setBreeds({ all: breeds.all, selected: [] })} disabled={breeds.selected.length === 0} className="group">
                                         <Chip Icon={X} label="Clear selection" className="transition group-enabled:text-red group-enabled:hover:border-red group-disabled:text-gunmetal group-disabled:dark:text-silver" />
                                     </button>
                                     {breeds.selected.map((breed: string) => (
