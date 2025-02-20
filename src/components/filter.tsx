@@ -12,7 +12,7 @@ import Checkbox from "@/components/checkbox";
 export default function Filter() {
     const [open, setOpen] = useState(false);
     const [showFavorites, setShowFavorites] = useState(false);
-    const [breeds, setBreeds] = useState({ all: [""], selected: [""] });
+    const [breeds, setBreeds] = useState({ all: [] as string[], selected: [] as string[] });
     const [age, setAge] = useState({ min: "", max: "" });
     const [isPending, startTransition] = useTransition();
     const path = usePathname();
