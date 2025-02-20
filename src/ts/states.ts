@@ -1,3 +1,8 @@
+export type State = {
+    abbr: string;
+    name: string;
+};
+
 export const States = [
     { abbr: "AL", name: "Alabama" },
     { abbr: "AK", name: "Alaska" },
