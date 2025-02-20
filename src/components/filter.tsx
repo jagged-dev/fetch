@@ -93,20 +93,8 @@ export default function Filter() {
                         <div className="flex flex-col gap-2">
                             <p>Age</p>
                             <div className="flex gap-2">
-                                <input
-                                    type="number"
-                                    placeholder="Min"
-                                    defaultValue={age.min}
-                                    onChange={(e) => setAge({ min: e.target.value, max: age.max })}
-                                    className="h-10 w-20 rounded-md border border-gunmetal/25 bg-transparent p-2 text-md hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50"
-                                />
-                                <input
-                                    type="number"
-                                    placeholder="Max"
-                                    defaultValue={age.max}
-                                    onChange={(e) => setAge({ min: age.min, max: e.target.value })}
-                                    className="h-10 w-20 rounded-md border border-gunmetal/25 bg-transparent p-2 text-md hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50"
-                                />
+                                <input type="number" placeholder="Min" defaultValue={age.min} onChange={(e) => setAge({ min: e.target.value, max: age.max })} className="h-12 w-24 rounded-lg border border-gunmetal/25 bg-transparent p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50" />
+                                <input type="number" placeholder="Max" defaultValue={age.max} onChange={(e) => setAge({ min: age.min, max: e.target.value })} className="h-12 w-24 rounded-lg border border-gunmetal/25 bg-transparent p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50" />
                             </div>
                         </div>
                         <div className="mt-auto flex gap-2">
