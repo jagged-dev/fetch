@@ -60,13 +60,13 @@ export default function Filter() {
             <Dialog open={open} onClose={() => setOpen(false)}>
                 <DialogBackdrop transition className="fixed inset-0 bg-gunmetal/75 transition data-[closed]:opacity-0 dark:bg-silver/25" />
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-8">
-                    <DialogPanel transition className="flex h-full w-full flex-col gap-8 rounded-lg bg-snow p-8 transition data-[closed]:scale-95 data-[closed]:opacity-0 dark:bg-coal">
+                    <DialogPanel transition className="flex h-full w-full flex-col gap-8 overflow-y-auto rounded-lg bg-snow p-8 transition data-[closed]:scale-95 data-[closed]:opacity-0 dark:bg-coal">
                         <DialogTitle className="text-3xl font-bold leading-none">Filters</DialogTitle>
                         <button onClick={() => setShowFavorites(!showFavorites)} className="group flex w-fit items-center gap-2 rounded-lg border border-gunmetal/25 p-2 transition hover:border-pink dark:border-silver/25 dark:hover:border-pink">
                             <Heart className={clsx("transition group-hover:text-pink", { "fill-pink text-pink": showFavorites })} />
                             <p className="text-md leading-none">Favorites only</p>
                         </button>
-                        <div className="flex h-1/3 w-full flex-col gap-2">
+                        <div className="flex h-96 w-full flex-col gap-2">
                             <p>Breeds</p>
                             {!isPending && (
                                 <div className="flex flex-wrap items-center gap-2">
