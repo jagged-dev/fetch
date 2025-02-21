@@ -8,6 +8,6 @@
     }
 
     ::-webkit-scrollbar-thumb {
-        @apply rounded-full bg-coal hover:bg-coal/50 dark:bg-snow dark:hover:bg-snow/50;
+        @apply cursor-pointer rounded-full bg-coal hover:bg-opacity-75 dark:bg-snow;
     }
 }
