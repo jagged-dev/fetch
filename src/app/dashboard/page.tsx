@@ -14,7 +14,7 @@ type searchParams = {
     total?: number;
     showFavorites?: string;
     breeds?: string;
-    zipCodes?: number;
+    zipCodes?: string;
     ageMin?: number;
     ageMax?: number;
 };
@@ -27,7 +27,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
     const total = Number(params?.total);
     const showFavorites = params?.showFavorites;
     const breeds = params?.breeds;
-    const zipCodes = Number(params?.zipCodes);
+    const zipCodes = params?.zipCodes;
     const ageMin = Number(params?.ageMin);
     const ageMax = Number(params?.ageMax);
 
