@@ -23,7 +23,7 @@ export default function Sizer({ size }: { size: number }) {
             {sizes.map((size) => (
                 <div key={size}>
                     {currentSize === size ? (
-                        <button onClick={() => setSize(size)} disabled className="w-12 rounded-md border border-gunmetal/25 text-md font-bold hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                        <button disabled className="w-12 rounded-md border border-gunmetal/25 text-md font-bold hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
                             {size}
                         </button>
                     ) : (
