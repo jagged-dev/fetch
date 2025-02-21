@@ -52,8 +52,8 @@ export default function Filter() {
 
     return (
         <>
-            <button onClick={() => setOpen(true)} className="h-12 w-12 rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
-                <span className="flex justify-center text-gunmetal transition-font hover:text-blue dark:text-silver">
+            <button onClick={() => setOpen(true)} className="group h-12 w-12 rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                <span className="flex justify-center text-gunmetal transition-font group-hover:text-blue dark:text-silver">
                     <SlidersHorizontal />
                 </span>
             </button>
