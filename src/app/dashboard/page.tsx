@@ -1,6 +1,7 @@
 import Link from "next/link";
 import Image from "next/image";
 import Filter from "@/components/filter";
+import LocationFilter from "@/components/location-filter";
 import Search from "@/components/search";
 import Match from "@/components/buttons/match";
 import Table from "@/components/table";
@@ -39,6 +40,7 @@ export default async function Page(props: { searchParams?: Promise<searchParams>
                 </Link>
                 <div className="flex w-full gap-2">
                     <Filter />
+                    <LocationFilter />
                     <Search />
                     <Match />
                 </div>
