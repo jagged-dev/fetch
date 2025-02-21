@@ -7,6 +7,10 @@
         @apply w-2;
     }
 
+    ::-webkit-scrollbar-track {
+        @apply bg-snow dark:bg-coal;
+    }
+
     ::-webkit-scrollbar-thumb {
         @apply cursor-pointer rounded-full bg-coal hover:bg-opacity-75 dark:bg-snow;
     }
