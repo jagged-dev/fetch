@@ -1,3 +1,13 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+@layer utilities {
+    ::-webkit-scrollbar {
+        @apply w-2;
+    }
+
+    ::-webkit-scrollbar-thumb {
+        @apply rounded-full bg-coal hover:bg-coal/50 dark:bg-snow dark:hover:bg-snow/50;
+    }
+}
