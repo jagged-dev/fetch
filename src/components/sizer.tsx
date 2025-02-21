@@ -19,13 +19,21 @@ export default function Sizer({ size }: { size: number }) {
 
     return (
         <div className="flex w-full items-center justify-center gap-4 rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 md:gap-8 dark:border-silver/25 dark:hover:border-silver/50">
-            <Dot strokeWidth={1} />
+            <Dot strokeWidth={1} className="opacity-25" />
             {sizes.map((size) => (
-                <button key={size} onClick={() => setSize(size)} disabled={currentSize === size} className="text-coal transition-font enabled:hover:text-blue disabled:font-bold disabled:text-blue dark:text-snow">
-                    <span className="text-md">{size}</span>
-                </button>
+                <div key={size}>
+                    {currentSize === size ? (
+                        <button onClick={() => setSize(size)} disabled className="w-12 rounded-md border border-gunmetal/25 text-md font-bold hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                            {size}
+                        </button>
+                    ) : (
+                        <button onClick={() => setSize(size)} className="text-md text-coal transition-font hover:text-blue dark:text-snow">
+                            {size}
+                        </button>
+                    )}
+                </div>
             ))}
-            <CircleSmall strokeWidth={1} />
+            <CircleSmall strokeWidth={1} className="opacity-25" />
         </div>
     );
 }
