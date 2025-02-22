@@ -17,10 +17,10 @@ export default function LocationFilter() {
     const [city, setCity] = useState("");
     const [states, setStates] = useState({ all: States, selected: [] as string[] });
     const [geoBoundingBox, setGeoBoundingBox] = useState({} as any);
-    const [tab, setTab] = useState(0);
-    const [locations, setLocations] = useState({ all: [] as Location[], selected: [] as string[] });
     const [size] = useState(100);
     const [from, setFrom] = useState(0);
+    const [locations, setLocations] = useState({ all: [] as Location[], selected: [] as string[] });
+    const [tab, setTab] = useState(0);
     const [page, setPage] = useState({ current: 1, total: 1 });
     const prevOpenRef = useRef(open2);
     const [isPending, startTransition] = useTransition();
