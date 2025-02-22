@@ -7,10 +7,10 @@ import { Map, X, Check, ChevronLeft, ChevronRight, LoaderCircle } from "lucide-r
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from "@headlessui/react";
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@headlessui/react";
 import { State, States } from "@/ts/states";
-import { Location, searchLocations } from "@/ts/api";
+import { Location, Coordinates as CoordinatesType, searchLocations } from "@/ts/api";
 import Chip from "@/components/chip";
 import Checkbox from "@/components/checkbox";
-import Coordinate from "@/components/coordinate";
+import Coordinates from "@/components/coordinates";
 
 export default function LocationFilter() {
     const [open1, setOpen1] = useState(false);
@@ -105,49 +105,41 @@ export default function LocationFilter() {
                                 </TabList>
                                 <TabPanels className="rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
                                     <TabPanel className="flex flex-wrap gap-2">
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Top:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.top?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, top: { lat: value, lon: geoBoundingBox?.top?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.top?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, top: { lat: geoBoundingBox?.top?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Top:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.top} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top: coordinates })} />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Left:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.left?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, left: { lat: value, lon: geoBoundingBox?.left?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.left?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, left: { lat: geoBoundingBox?.left?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Left:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, left: coordinates })} />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Bottom:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.bottom?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, bottom: { lat: value, lon: geoBoundingBox?.bottom?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.bottom?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, bottom: { lat: geoBoundingBox?.bottom?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Bottom:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.bottom} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom: coordinates })} />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Right:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.right?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, right: { lat: value, lon: geoBoundingBox?.right?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.right?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, right: { lat: geoBoundingBox?.right?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Right:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, right: coordinates })} />
                                         </div>
                                     </TabPanel>
                                     <TabPanel className="flex flex-wrap gap-2">
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Top Left:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.top_left?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, top_left: { lat: value, lon: geoBoundingBox?.top_left?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.top_left?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, top_left: { lat: geoBoundingBox?.top_left?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Top Left:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.top_left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top_left: coordinates })} />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Bottom Right:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.bottom_right?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, bottom_right: { lat: value, lon: geoBoundingBox?.bottom_right?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.bottom_right?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, bottom_right: { lat: geoBoundingBox?.bottom_right?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Bottom Right:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.bottom_right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom_right: coordinates })} />
                                         </div>
                                     </TabPanel>
                                     <TabPanel className="flex flex-wrap gap-2">
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Bottom Left:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.bottom_left?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, bottom_left: { lat: value, lon: geoBoundingBox?.bottom_left?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.bottom_left?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, bottom_left: { lat: geoBoundingBox?.bottom_left?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Bottom Left:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.bottom_left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom_left: coordinates })} />
                                         </div>
-                                        <div className="grid grid-cols-2 gap-2">
-                                            <p className="col-span-2 text-md">Top Right:</p>
-                                            <Coordinate placeholder="Lat" defaultValue={geoBoundingBox.top_right?.lat} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, top_right: { lat: value, lon: geoBoundingBox?.top_right?.lon } })} />
-                                            <Coordinate placeholder="Lon" defaultValue={geoBoundingBox.top_right?.lon} onChange={(value: number) => setGeoBoundingBox({ ...geoBoundingBox, top_right: { lat: geoBoundingBox?.top_right?.lat, lon: value } })} />
+                                        <div className="flex flex-col gap-2">
+                                            <p className="text-md">Top Right:</p>
+                                            <Coordinates coordinates={geoBoundingBox?.top_right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top_right: coordinates })} />
                                         </div>
                                     </TabPanel>
                                 </TabPanels>
