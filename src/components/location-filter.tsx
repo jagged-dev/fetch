@@ -6,7 +6,7 @@ import { Map, X, Check, ChevronLeft, ChevronRight, LoaderCircle } from "lucide-r
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from "@headlessui/react";
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@headlessui/react";
 import { State, States } from "@/ts/states";
-import { Location, Coordinates as CoordinatesType, searchLocations } from "@/ts/api";
+import { Location, Coordinates as CoordinatesType, GeoBoundingBox, searchLocations } from "@/ts/api";
 import Chip from "@/components/chip";
 import Checkbox from "@/components/checkbox";
 import Coordinates from "@/components/coordinates";
@@ -16,7 +16,7 @@ export default function LocationFilter() {
     const [open2, setOpen2] = useState(false);
     const [city, setCity] = useState("");
     const [states, setStates] = useState({ all: States, selected: [] as string[] });
-    const [geoBoundingBox, setGeoBoundingBox] = useState({} as any);
+    const [geoBoundingBox, setGeoBoundingBox] = useState({} as GeoBoundingBox);
     const [size] = useState(100);
     const [from, setFrom] = useState(0);
     const [locations, setLocations] = useState({ all: [] as Location[], selected: [] as string[] });
@@ -103,39 +103,39 @@ export default function LocationFilter() {
                                     <TabPanel className="flex flex-wrap gap-2">
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Top:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.top} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.top} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top: coordinates })} />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Left:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, left: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, left: coordinates })} />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Bottom:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.bottom} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.bottom} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom: coordinates })} />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Right:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, right: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, right: coordinates })} />
                                         </div>
                                     </TabPanel>
                                     <TabPanel className="flex flex-wrap gap-2">
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Top Left:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.top_left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top_left: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.top_left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top_left: coordinates })} />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Bottom Right:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.bottom_right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom_right: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.bottom_right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom_right: coordinates })} />
                                         </div>
                                     </TabPanel>
                                     <TabPanel className="flex flex-wrap gap-2">
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Bottom Left:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.bottom_left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom_left: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.bottom_left} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, bottom_left: coordinates })} />
                                         </div>
                                         <div className="flex flex-col gap-2">
                                             <p className="text-md">Top Right:</p>
-                                            <Coordinates coordinates={geoBoundingBox?.top_right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top_right: coordinates })} />
+                                            <Coordinates coordinates={geoBoundingBox.top_right} onChange={(coordinates: CoordinatesType) => setGeoBoundingBox({ ...geoBoundingBox, top_right: coordinates })} />
                                         </div>
                                     </TabPanel>
                                 </TabPanels>

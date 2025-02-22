@@ -28,6 +28,17 @@ export type Coordinates = {
     lon: number;
 };
 
+export type GeoBoundingBox = {
+    top?: Coordinates;
+    left?: Coordinates;
+    bottom?: Coordinates;
+    right?: Coordinates;
+    top_left?: Coordinates;
+    top_right?: Coordinates;
+    bottom_left?: Coordinates;
+    bottom_right?: Coordinates;
+};
+
 export async function logIn(name: string, email: string) {
     const response = await fetch(baseURL + "/auth/login", {
         method: "POST",
@@ -130,32 +141,11 @@ export async function fetchLocations(zipCodes: string[]) {
     }
 }
 
-export async function searchLocations(
-    city?: string,
-    states?: string[],
-    geoBoundingBox?: {
-        top?: Coordinates;
-        left?: Coordinates;
-        bottom?: Coordinates;
-        right?: Coordinates;
-        top_left?: Coordinates;
-        top_right?: Coordinates;
-        bottom_left?: Coordinates;
-        bottom_right?: Coordinates;
-    },
-    size?: number,
-    from?: number,
-) {
+export async function searchLocations(city?: string, states?: string[], geoBoundingBox?: GeoBoundingBox, size?: number, from?: number) {
     const response = await fetch(baseURL + "/locations/search", {
         method: "POST",
         headers: headers,
-        body: JSON.stringify({
-            city: city,
-            states: states,
-            geoBoundingBox: geoBoundingBox,
-            size: size,
-            from: from,
-        }),
+        body: JSON.stringify({ city: city, states: states, geoBoundingBox: geoBoundingBox, size: size, from: from }),
         credentials: "include",
     });
     if (response.ok) {
