@@ -1,16 +1,10 @@
 <p align="center">
   <a href="https://fetch-jagged.vercel.app" target="_blank">
-    <img src="/public/opengraph-image.png" alt="fetch a friend" width="1600" height="900" />
+    <img src="/public/opengraph-image.png" alt="fetch a friend" width="830" height="467" />
   </a>
 </p>
 
 ## Getting Started
-
-If you would like to run this site locally, ensure you have the following installed:
-
-- `Git`
-- `Node.js`
-- `npm`
 
 ### Clone the repository
 
@@ -44,7 +38,7 @@ pnpm dev
 pnpm lint
 ```
 
-### Build
+### Build for production
 
 ```bash
 pnpm build
