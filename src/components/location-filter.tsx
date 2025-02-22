@@ -179,7 +179,7 @@ export default function LocationFilter() {
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-8">
                     <DialogPanel transition className="flex h-full w-full flex-col gap-8 overflow-y-auto rounded-lg bg-snow p-8 transition data-[closed]:translate-x-16 data-[closed]:opacity-0 dark:bg-coal">
                         <DialogTitle className="text-3xl font-bold leading-none">Locations</DialogTitle>
-                        <div className="flex flex-col gap-2">
+                        <div className="flex min-h-0 grow flex-col gap-2">
                             <div className="flex flex-wrap items-center gap-2">
                                 <button onClick={() => setLocations({ ...locations, selected: [] })} disabled={locations.selected.length === 0} className="group">
                                     <Chip Icon={X} label="Clear selection" className="transition group-enabled:text-red group-enabled:hover:border-red group-disabled:text-gunmetal group-disabled:dark:text-silver" />
@@ -189,11 +189,11 @@ export default function LocationFilter() {
                                 ))}
                             </div>
                             {isPending ? (
-                                <div className="flex h-96 w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                                <div className="flex h-full w-full items-center justify-center rounded-lg border border-gunmetal/25 p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
                                     <LoaderCircle size={48} className="animate-spin" />
                                 </div>
                             ) : (
-                                <div className="flex max-h-96 w-full flex-col gap-2 overflow-y-auto rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
+                                <div className="flex w-full flex-col gap-2 overflow-y-auto rounded-lg border border-gunmetal/25 p-2 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50">
                                     {locations.all.map((location: Location) => (
                                         <Checkbox key={location.zip_code} id={location.zip_code} label={`${location.city}, ${location.county}, ${location.state} ${location.zip_code}`} checked={locations.selected.includes(location.zip_code)} onCheck={(checked: boolean) => toggleLocation(location.zip_code, checked)} />
                                     ))}
