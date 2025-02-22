@@ -149,6 +149,7 @@ export default function LocationFilter() {
                                     onClick={() => {
                                         setTab((tab) => tab - 1);
                                         setGeoBoundingBox({});
+                                        setFrom(0);
                                     }}
                                     disabled={tab === 0}
                                     className="text-coal transition-font enabled:hover:text-blue disabled:opacity-25 dark:text-snow"
@@ -159,6 +160,7 @@ export default function LocationFilter() {
                                     onClick={() => {
                                         setTab((tab) => tab + 1);
                                         setGeoBoundingBox({});
+                                        setFrom(0);
                                     }}
                                     disabled={tab === 2}
                                     className="text-coal transition-font enabled:hover:text-blue disabled:opacity-25 dark:text-snow"
