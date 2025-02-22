@@ -1,8 +1,7 @@
 "use client";
 
-import { useState, useTransition, useEffect } from "react";
+import { useState, useRef, useTransition, useEffect } from "react";
 import { usePathname, useSearchParams, useRouter } from "next/navigation";
-import { useDebouncedCallback } from "use-debounce";
 import { Map, X, Check, ChevronLeft, ChevronRight, LoaderCircle } from "lucide-react";
 import { Dialog, DialogBackdrop, DialogPanel, DialogTitle } from "@headlessui/react";
 import { TabGroup, TabList, Tab, TabPanels, TabPanel } from "@headlessui/react";
@@ -23,6 +22,7 @@ export default function LocationFilter() {
     const [from, setFrom] = useState(0);
     const [page, setPage] = useState({ current: 1, total: 1 });
     const [locations, setLocations] = useState({ all: [] as Location[], selected: [] as string[] });
+    const prevOpenRef = useRef(open2);
     const [isPending, startTransition] = useTransition();
     const path = usePathname();
     const params = useSearchParams();
@@ -31,24 +31,20 @@ export default function LocationFilter() {
     useEffect(() => {
         if (open2) {
             startTransition(async () => {
+                if (prevOpenRef.current !== open2) setFrom(0);
                 const results = await searchLocations(city, states.selected.length ? states.selected : undefined, Object.keys(geoBoundingBox).length ? geoBoundingBox : undefined, size, from);
                 const locations = results.results;
                 setLocations({ all: locations, selected: params.getAll("zipCodes") });
                 const total = results.total;
-                setPage({ current: Math.floor(from / size) + 1, total: Math.ceil(total / size) });
+                setPage({ current: Math.floor(from / size) + 1 || 1, total: Math.ceil(total / size) || 1 });
             });
         }
+        prevOpenRef.current = open2;
     }, [open2, from]);
-
-    const search = useDebouncedCallback((term) => {
-        setCity(term);
-        setFrom(0);
-    }, 300);
 
     function toggleState(state: string, checked: boolean) {
         if (checked) setStates({ ...states, selected: [...states.selected, state] });
         else setStates({ ...states, selected: states.selected.filter((item: string) => item !== state) });
-        setFrom(0);
     }
 
     function toggleLocation(zipCode: string, checked: boolean) {
@@ -78,7 +74,7 @@ export default function LocationFilter() {
                 <div className="fixed inset-0 flex w-screen items-center justify-center p-8">
                     <DialogPanel transition className="flex h-full w-full flex-col gap-8 overflow-y-auto rounded-lg bg-snow p-8 transition data-[closed]:scale-95 data-[closed]:opacity-0 dark:bg-coal">
                         <DialogTitle className="text-3xl font-bold leading-none">Filters</DialogTitle>
-                        <input type="text" placeholder="City" defaultValue={city} onChange={(e) => search(e.target.value)} className="h-12 w-full max-w-96 rounded-lg border border-gunmetal/25 bg-transparent p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50" />
+                        <input type="text" placeholder="City" defaultValue={city} onChange={(e) => setCity(e.target.value)} className="h-12 w-full max-w-96 rounded-lg border border-gunmetal/25 bg-transparent p-4 hover:border-gunmetal/50 dark:border-silver/25 dark:hover:border-silver/50" />
                         <div className="flex flex-col gap-2">
                             <p>States</p>
                             <div className="flex flex-wrap items-center gap-2">
@@ -149,7 +145,6 @@ export default function LocationFilter() {
                                     onClick={() => {
                                         setTab((tab) => tab - 1);
                                         setGeoBoundingBox({});
-                                        setFrom(0);
                                     }}
                                     disabled={tab === 0}
                                     className="text-coal transition-font enabled:hover:text-blue disabled:opacity-25 dark:text-snow"
@@ -160,7 +155,6 @@ export default function LocationFilter() {
                                     onClick={() => {
                                         setTab((tab) => tab + 1);
                                         setGeoBoundingBox({});
-                                        setFrom(0);
                                     }}
                                     disabled={tab === 2}
                                     className="text-coal transition-font enabled:hover:text-blue disabled:opacity-25 dark:text-snow"
