@@ -5,7 +5,7 @@ import Footer from "@/components/layout/footer";
 import "@/css/tailwind.css";
 
 export const metadata: Metadata = {
-    title: "Fetch a Friend",
+    title: "fetch a friend",
     description: "One fetch closer to your new best friend",
     icons: {
         icon: "/favicon.ico",
@@ -14,8 +14,8 @@ export const metadata: Metadata = {
         images: [
             {
                 url: "https://fetch-jagged.vercel.app/opengraph-image.png?opengraph-image.5d2438eb.png",
-                width: 1600,
-                height: 900,
+                width: 1920,
+                height: 1080,
                 type: "image/png",
             },
         ],
