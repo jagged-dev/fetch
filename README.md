@@ -14,7 +14,7 @@
 
 ## Introduction
 
-For all the dog-lovers out there, **Fetch a Friend** is the tool you need to search for, sort and filter through, and match with shelter dogs!
+For all the dog-lovers out there, **fetch a friend** is the tool you need to search for, sort and filter through, and match with shelter dogs!
 With access to a large database of shelter dogs, finding your new best friend is only one fetch away.
 
 ## Getting Started
