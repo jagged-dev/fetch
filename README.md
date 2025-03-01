@@ -2,15 +2,15 @@
   <img src="/public/opengraph-image.png" alt="fetch a friend" width="830" />
 </a>
 
-[![Next.js][Next]][Next-url]
-[![React][React]][React-url]
-[![TypeScript][Typescript]][Typescript-url]
-[![TailwindCSS][Tailwind]][Tailwind-url]
-[![HeadlessUI][Headless]][Headless-url]
-[![Lucide][Lucide]][Lucide-url]
-[![Git][Git]][Git-url]
-[![GitHub][Github]][Github-url]
-[![Vercel][Vercel]][Vercel-url]
+[![Next.js][next]][next-url]
+[![React][react]][react-url]
+[![TypeScript][typescript]][typescript-url]
+[![TailwindCSS][tailwind]][tailwind-url]
+[![HeadlessUI][headless]][headless-url]
+[![Lucide][lucide]][lucide-url]
+[![Git][git]][git-url]
+[![GitHub][github]][github-url]
+[![Vercel][vercel]][vercel-url]
 
 ## Introduction
 
@@ -101,23 +101,23 @@ pnpm start
 
 ## Contact
 
-Contact me at <jgiang.430@gmail.com>
+Feel free to send me an email at <jgiang.430@gmail.com>.
 
-[Next]: https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
-[Next-url]: https://nextjs.org/
-[React]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
-[React-url]: https://reactjs.org/
-[Typescript]: https://img.shields.io/badge/TypeScript-3377c4?style=for-the-badge&logo=typescript&logoColor=white
-[Typescript-url]: https://typescriptlang.org/
-[Tailwind]: https://img.shields.io/badge/TailwindCSS-030712?style=for-the-badge&logo=tailwindcss&logoColor=3cbcf6
-[Tailwind-url]: https://tailwindcss.com/
-[Headless]: https://img.shields.io/badge/HeadlessUI-111826?style=for-the-badge&logo=headlessui&logoColor=7fd2fa
-[Headless-url]: https://headlessui.com/
-[Lucide]: https://img.shields.io/badge/Lucide-161618?style=for-the-badge&logo=lucide&logoColor=f46969
-[Lucide-url]: https://lucide.dev/
-[Git]: https://img.shields.io/badge/Git-f0f0e8?style=for-the-badge&logo=git&logoColor=fa5534
-[Git-url]: https://git-scm.com/
-[Github]: https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=white
-[Github-url]: https://github.com/
-[Vercel]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
-[Vercel-url]: https://vercel.com/
+[next]: https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[next-url]: https://nextjs.org/
+[react]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
+[react-url]: https://reactjs.org/
+[typescript]: https://img.shields.io/badge/TypeScript-3377c4?style=for-the-badge&logo=typescript&logoColor=white
+[typescript-url]: https://typescriptlang.org/
+[tailwind]: https://img.shields.io/badge/TailwindCSS-030712?style=for-the-badge&logo=tailwindcss&logoColor=3cbcf6
+[tailwind-url]: https://tailwindcss.com/
+[headless]: https://img.shields.io/badge/HeadlessUI-111826?style=for-the-badge&logo=headlessui&logoColor=7fd2fa
+[headless-url]: https://headlessui.com/
+[lucide]: https://img.shields.io/badge/Lucide-161618?style=for-the-badge&logo=lucide&logoColor=f46969
+[lucide-url]: https://lucide.dev/
+[git]: https://img.shields.io/badge/Git-f0f0e8?style=for-the-badge&logo=git&logoColor=fa5534
+[git-url]: https://git-scm.com/
+[github]: https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=white
+[github-url]: https://github.com/
+[vercel]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
+[vercel-url]: https://vercel.com/
