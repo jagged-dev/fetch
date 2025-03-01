@@ -91,9 +91,9 @@ pnpm start
 
 ### Pagination
 
-- `Arrows`
-- `Page numbers`
-- `Page dropdown`
+- `arrows`
+- `page numbers`
+- `page dropdown`
 
 ### Display
 
