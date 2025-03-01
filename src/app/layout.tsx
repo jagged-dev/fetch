@@ -13,7 +13,7 @@ export const metadata: Metadata = {
     openGraph: {
         images: [
             {
-                url: "https://fetch-jagged.vercel.app/opengraph-image.png?opengraph-image.5d2438eb.png",
+                url: "https://fetch-jagged.vercel.app/opengraph-image.png",
                 width: 1920,
                 height: 1080,
                 type: "image/png",
