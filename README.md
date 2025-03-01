@@ -1,8 +1,6 @@
-<p align="center">
-  <a href="https://fetch-jagged.vercel.app" target="_blank">
-    <img src="/public/opengraph-image.png" alt="fetch a friend" width="830" height="467" />
-  </a>
-</p>
+<a href="https://fetch-jagged.vercel.app" target="_blank">
+  <img src="/opengraph-image.png" alt="fetch a friend" width="830" />
+</a>
 
 [![Next.js][Next]][Next-url]
 [![React][React]][React-url]
