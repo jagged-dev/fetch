@@ -103,11 +103,11 @@ pnpm start
 
 Feel free to send me an email at <jgiang.430@gmail.com>.
 
-[next]: https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=white
+[next]: https://img.shields.io/badge/Next.js-000000?style=for-the-badge&logo=nextdotjs&logoColor=ffffff
 [next-url]: https://nextjs.org/
 [react]: https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB
 [react-url]: https://reactjs.org/
-[typescript]: https://img.shields.io/badge/TypeScript-3377c4?style=for-the-badge&logo=typescript&logoColor=white
+[typescript]: https://img.shields.io/badge/TypeScript-3377c4?style=for-the-badge&logo=typescript&logoColor=ffffff
 [typescript-url]: https://typescriptlang.org/
 [tailwind]: https://img.shields.io/badge/TailwindCSS-030712?style=for-the-badge&logo=tailwindcss&logoColor=3cbcf6
 [tailwind-url]: https://tailwindcss.com/
@@ -117,7 +117,7 @@ Feel free to send me an email at <jgiang.430@gmail.com>.
 [lucide-url]: https://lucide.dev/
 [git]: https://img.shields.io/badge/Git-f0f0e8?style=for-the-badge&logo=git&logoColor=fa5534
 [git-url]: https://git-scm.com/
-[github]: https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=white
+[github]: https://img.shields.io/badge/GitHub-0d1117?style=for-the-badge&logo=github&logoColor=ffffff
 [github-url]: https://github.com/
-[vercel]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=white
+[vercel]: https://img.shields.io/badge/Vercel-000000?style=for-the-badge&logo=vercel&logoColor=ffffff
 [vercel-url]: https://vercel.com/
