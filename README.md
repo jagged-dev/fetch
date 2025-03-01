@@ -1,5 +1,5 @@
 <a href="https://fetch-jagged.vercel.app" target="_blank">
-  <img src="/opengraph-image.png" alt="fetch a friend" width="830" />
+  <img src="/public/opengraph-image.png" alt="fetch a friend" width="830" />
 </a>
 
 [![Next.js][Next]][Next-url]
