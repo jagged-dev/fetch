@@ -6,7 +6,7 @@
 [![React][react]][react-url]
 [![TypeScript][typescript]][typescript-url]
 [![CSS][css]][css-url]
-[![TailwindCSS][tailwind]][tailwind-url]
+[![Tailwind][tailwind]][tailwind-url]
 [![HeadlessUI][headless]][headless-url]
 [![Lucide][lucide]][lucide-url]
 [![Git][git]][git-url]
@@ -111,7 +111,7 @@ Feel free to send me an email at <jgiang.430@gmail.com>.
 [typescript-url]: https://typescriptlang.org/
 [css]: https://img.shields.io/badge/CSS-663497?style=for-the-badge&logo=css&logoColor=ffffff
 [css-url]: https://developer.mozilla.org/en-US/docs/Web/CSS/
-[tailwind]: https://img.shields.io/badge/TailwindCSS-030712?style=for-the-badge&logo=tailwindcss&logoColor=3cbcf6
+[tailwind]: https://img.shields.io/badge/Tailwind-030712?style=for-the-badge&logo=tailwindcss&logoColor=3cbcf6
 [tailwind-url]: https://tailwindcss.com/
 [headless]: https://img.shields.io/badge/HeadlessUI-111826?style=for-the-badge&logo=headlessui&logoColor=7fd2fa
 [headless-url]: https://headlessui.com/
